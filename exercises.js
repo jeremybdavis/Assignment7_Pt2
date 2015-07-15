@@ -73,30 +73,54 @@ function multiply(array){
 // Define a function reverse() that computes the reversal of a string. For example, reverse("jag testar") should return the string "ratset gaj".
 // ---------------------
 
-function reverse(){
-    //...
-}
+function reverse(str){
+    var newStr = "";
+    for (var i = str.length -1; i >= 0; i--) {
+      newStr = newStr + str[i];
+    }
+    return newStr;
+};
 
 // ---------------------
 // Write a function findLongestWord() that takes an array of words and returns the length of the longest one.
 // ---------------------
 
 function findLongestWord(words){
-    //...
-}
+  var length = 0;
+  var longest;
+
+  for (var i = 0; i < words.length; i++) {
+    if(words[i].length > length){
+      length = words[i].length;
+      longest =  words[i];
+    }
+  }
+  return longest;
+};
+
 
 // ---------------------
 // Write a function filterLongWords() that takes an array of words and an integer i and returns the array of words that are longer than i.
 // ---------------------
 
 function filterLongWords(words, i){
-    
-}
+  return words.filter(function(longWords){
+    return (longWords.length > i);
+  })
+};
 
 // ---------------------
 // Write a function charFreq() that takes a string and builds a frequency listing of the characters contained in it. Represent the frequency listing as a Javascript object. Try it with something like charFreq("abbabcbdbabdbdbabababcbcbab").
 // ---------------------
 
 function charFreq(string){
-    //...
+    var newObj = {};
+    for (var i = 0; i < string.length; i++) {
+      if (newObj.hasOwnProperty(string[i])) {
+        newObj[string[i]] = newObj[string[i]] + 1;
+      } else{
+        newObj[string[i]] = 1;
+      }
+    }
+  return newObj;
 }
